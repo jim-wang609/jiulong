@@ -1,4 +1,4 @@
-('C:\\Users\\jim\\Desktop\\Transpose\\build\\tool_V4.0\\PYZ-00.pyz',
+('D:\\gitcode\\jiulong\\build\\tool_V4.0\\PYZ-00.pyz',
  [('PIL',
    'C:\\Users\\jim\\Desktop\\Transpose\\.venv\\lib\\site-packages\\PIL\\__init__.py',
    'PYMODULE'),

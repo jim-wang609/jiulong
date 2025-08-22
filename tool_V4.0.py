@@ -261,7 +261,7 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
-root.title("Tool V2.0")
+root.title("Tool V4.0")
 
 root.geometry(f'{window_width}x{window_height}+{x}+{y}')
 root.grid_columnconfigure(0, weight=1)
