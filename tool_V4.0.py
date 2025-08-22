@@ -815,7 +815,7 @@ def show_pack_page():
                 count1, count2 = 0, 0
                 pre_empty = i
         pack_no = ''
-        pack_no_num = 1
+        pack_no_num = int(entry_6.get())
         pack_no_arr = ['01', '02', '03', '04', '05', '06', '07', '08', '09']
         pre_loc = 1
         df.loc[len(arr) + 3] = None
@@ -881,9 +881,16 @@ def show_pack_page():
     text_label_1.grid(row=0, column=0, columnspan=4, padx=5, pady=10)
     text_label_2 = ttk.Label(main_app_frame, text="包号格式：",
                              font=("Microsoft YaHei UI", 14), anchor="center")
-    text_label_2.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
-    entry_1 = ttk.Entry(main_app_frame, width=20, background="", font=("Microsoft YaHei UI", 14))
-    entry_1.grid(row=1, column=2, columnspan=2, padx=10, pady=10)
+    text_label_2.grid(row=1, column=0, columnspan=1, padx=5, pady=10)
+    entry_1 = ttk.Entry(main_app_frame, width=10, background="", font=("Microsoft YaHei UI", 14))
+    entry_1.grid(row=1, column=1, columnspan=1, padx=10, pady=10)
+
+    text_label_7 = ttk.Label(main_app_frame, text="包号起始：",
+                             font=("Microsoft YaHei UI", 14), anchor="center")
+    text_label_7.grid(row=1, column=2, columnspan=1, padx=5, pady=10)
+    entry_6 = ttk.Entry(main_app_frame, width=10, background="", font=("Microsoft YaHei UI", 14))
+    entry_6.grid(row=1, column=3, columnspan=1, padx=10, pady=10)
+    entry_6.insert(0, "1")
 
     text_label_3 = ttk.Label(main_app_frame, text="踢脚板高度：",
                              font=("Microsoft YaHei UI", 14), anchor="center")
@@ -978,6 +985,7 @@ def show_QR_page():
         # ws = wb.active
         ws.cell(row=1, column=1).value = df.iloc[0, 2]
         ws.cell(row=2, column=1).value = df.iloc[0, 10]
+        ws.cell(row=2, column=9).value = "成品一"
         pre_num, num_count = df.iloc[7, 0], 0
         new_i, new_j, i_count, j_count = 4, 1, 0, 0
 
@@ -1063,7 +1071,7 @@ def show_QR_page():
         ws.page_setup.horizontalCentered = True
         ws.page_setup.verticalCentered = True
         ws.merge_cells('A1:I1')
-        ws.merge_cells('A2:I2')
+        ws.merge_cells('A2:H2')
         wb.save(filepath)
         os.startfile(filepath)
         root.destroy()
@@ -1192,6 +1200,7 @@ def show_QR_page_1():
         # ws = wb.active
         ws.cell(row=1, column=1).value = df.columns[7]
         ws.cell(row=2, column=1).value = df.columns[16]
+        ws.cell(row=2, column=6).value = "成品二"
         new_i, new_j, i_count, j_count = 3, 1, 0, 0
 
         def generate_qrcode_image(data, size):
@@ -1267,7 +1276,7 @@ def show_QR_page_1():
         ws.page_setup.horizontalCentered = True
         ws.page_setup.verticalCentered = True
         ws.merge_cells('A1:F1')
-        ws.merge_cells('A2:F2')
+        ws.merge_cells('A2:E2')
         wb.save(filepath)
         os.startfile(filepath)
         root.destroy()
