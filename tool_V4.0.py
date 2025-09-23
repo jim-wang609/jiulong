@@ -129,14 +129,24 @@ def process_excel_file(file_path_3):
     arr = np.array(df)
     wb = Workbook()
     sheet = wb.active
+    arr_index=["编号","压焊宽度","压焊扁钢高度","扁钢支数","数量","扭钢留头","扭钢间距","扭钢根数","切割单双边","焊接方案号","压焊扁钢长度"]
     for j in range(0, len(arr)):
         sheet.column_dimensions[get_column_letter(j * 2 + 1)].width = 14
-        for i in range(0, len(df_index)):
-            sheet.cell(row=i + 1, column=j * 2 + 1).value = df_index[i]
+        for i in range(0, len(arr_index)):
+            sheet.cell(row=i + 1, column=j * 2 + 1).value = arr_index[i]
     for k in range(0, len(arr)):
         sheet.column_dimensions[get_column_letter(k * 2 + 2)].width = 16
-        for col_idx in range(0, len(df_index)):
-            sheet.cell(row=col_idx + 1, column=k * 2 + 2).value = arr[k][col_idx]
+        sheet.cell(row=1, column=k * 2 + 2).value = arr[k][0]
+        sheet.cell(row=2, column=k * 2 + 2).value = arr[k][1]
+        sheet.cell(row=3, column=k * 2 + 2).value = arr[k][4]
+        sheet.cell(row=4, column=k * 2 + 2).value = arr[k][5]
+        sheet.cell(row=5, column=k * 2 + 2).value = arr[k][2]
+        sheet.cell(row=6, column=k * 2 + 2).value = arr[k][6]
+        sheet.cell(row=7, column=k * 2 + 2).value = arr[k][8]
+        sheet.cell(row=8, column=k * 2 + 2).value = arr[k][7]
+        sheet.cell(row=9, column=k * 2 + 2).value = arr[k][10]
+        sheet.cell(row=10, column=k * 2 + 2).value = arr[k][9]
+        sheet.cell(row=11, column=k * 2 + 2).value = "数量"
     file_out = file_path_3.replace('.xlsx', '')
     file_out = file_out.replace('.xls', '')
     wb.save(file_out + '_' + '转置.xlsx')
