@@ -147,6 +147,9 @@ def process_excel_file(file_path_3):
         sheet.cell(row=9, column=k * 2 + 2).value = arr[k][10]
         sheet.cell(row=10, column=k * 2 + 2).value = arr[k][9]
         sheet.cell(row=11, column=k * 2 + 2).value = "数量"
+        for l in range(int(arr[k][5])):
+            sheet.cell(row=11 + l, column=k * 2 + 1).value = arr[k][3]
+            sheet.cell(row=11+l, column=k * 2 + 2).value = 1
     file_out = file_path_3.replace('.xlsx', '')
     file_out = file_out.replace('.xls', '')
     wb.save(file_out + '_' + '转置.xlsx')
@@ -271,7 +274,7 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
-root.title("Tool V4.0")
+root.title("Tool V1.0")
 
 root.geometry(f'{window_width}x{window_height}+{x}+{y}')
 root.grid_columnconfigure(0, weight=1)
@@ -297,7 +300,7 @@ def show_home_page():
     s.configure('TButton', font=('宋体', 12), padding=10)
     # 主页标题标签
     home_title_label = ttk.Label(main_app_frame,
-                                 text="tool V4.0",
+                                 text="tool V1.0",
                                  font=('微软雅黑', 18, 'bold'),
                                  foreground='#333333')
     home_title_label.pack(pady=(20, 30))
