@@ -1039,6 +1039,8 @@ def show_QR_page():
                 pre_num = df.iloc[i + 1, 0]
             elif df.iloc[i, 4] == "合并板" or "拼" in df.iloc[i, 4]:
                 pass
+            elif '废板' in df.iloc[i, 4]:
+                pass
             else:
                 ws.cell(row=new_i + page_max * i_count, column=new_j + 3 * j_count).value = pre_num
                 ws.cell(row=new_i + page_max * i_count, column=new_j + 3 * j_count + 1).value = df.iloc[
